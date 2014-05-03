@@ -25,7 +25,7 @@ namespace TicTacToe
 		public void BoardHasSquares()
 		{
 
-			Assert.AreEqual (board.NumCells, 9);
+			Assert.AreEqual (board.NumSymbols, 9);
 		}
 
 		[Test]
@@ -60,11 +60,11 @@ namespace TicTacToe
 
 
 		[Test]
-		public void SelectCell1()
+		public void SelectSymbol1()
 		{
 			int row = 1, column = 2;
-			Cell cell = board.SelectCell (row, column);
-			Assert.AreNotSame(cell, null);
+			Symbol symbol = board.SelectSymbol (row, column);
+			Assert.AreNotSame(symbol, null);
 		}
 //
 

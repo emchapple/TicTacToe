@@ -16,7 +16,7 @@ namespace TicTacToe
 		private void play()
 		{
 			Console.WriteLine (WELCOME_MESSAGE);
-			Console.WriteLine ("You have a board with {0} cells.", board.NumCells);
+			Console.WriteLine ("You have a board with {0} cells.", board.NumSymbols);
 			//	Console.WriteLine (board.GetStatus ());
 			Console.WriteLine (EXIT_MESSAGE);
 		}

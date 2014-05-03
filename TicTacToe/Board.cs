@@ -4,10 +4,10 @@ namespace TicTacToe
 {
 	public class Board
 	{
-		private int numCells;
-		public int NumCells 
+		private int numSymbols;
+		public int NumSymbols 
 		{
-			get{ return numCells; }
+			get{ return numSymbols; }
 		}
 
 		private int numColumns;
@@ -21,23 +21,23 @@ namespace TicTacToe
 			get{return numRows;}
 		}
 
-		protected Cell[,] cells;
+		protected Symbol[,] symbols;
 
 		public Board ()
 		{
 			numColumns = 3;
 			numRows = 3;
-			numCells = numRows * numColumns;
+			numSymbols = numRows * numColumns;
 			initializeBoard ();
 		}
 
 		private void initializeBoard ()
 		{
-			cells = new Cell[numRows, numColumns];
+			symbols = new Symbol[numRows, numColumns];
 
 			for (int i = 0; i < numRows; i++) {
 				for (int j = 0; j < numColumns; j++) {
-					cells [i,j] = new Cell ();
+					symbols [i,j] = new Symbol ();
 				}
 			}
 		}
@@ -51,7 +51,7 @@ namespace TicTacToe
 
 		public bool IsEmpty()
 		{
-			for (int i = 0; i < cells.GetLength (0); i++)
+			for (int i = 0; i < symbols.GetLength (0); i++)
 			 {
 				if(RowIsEmpty(i) == false)
 				{
@@ -64,18 +64,18 @@ namespace TicTacToe
 
 		public bool RowIsEmpty(int rowNumber)
 		{
-			for (int j = 0; j < cells.GetLength (1); j++) {
-				Cell cell = cells [rowNumber, j];
-				if (cell.IsEmpty() == false) {
+			for (int j = 0; j < symbols.GetLength (1); j++) {
+				Symbol symbol = symbols [rowNumber, j];
+				if (symbol == null) {
 					return false;
 				}
 			}
 			return true;
 		}
 
-		public Cell SelectCell(int row, int column)
+		public Symbol SelectSymbol(int row, int column)
 		{
-			return cells [row, column];
+			return symbols [row, column];
 		}
 
 
